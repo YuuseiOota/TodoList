@@ -134,7 +134,7 @@
                                 <rect key="frame" x="120" y="370" width="245" height="30"/>
                                 <state key="normal" title="カテゴリー追加"/>
                                 <connections>
-                                    <segue destination="nOu-51-O42" kind="show" id="ySF-9c-MCh"/>
+                                    <segue destination="nOu-51-O42" kind="show" identifier="Add" id="ySF-9c-MCh"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="THq-YW-1f9">
@@ -217,10 +217,10 @@
             </objects>
             <point key="canvasLocation" x="1026" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Add View Controller-->
         <scene sceneID="U0m-JH-GhH">
             <objects>
-                <viewController id="nOu-51-O42" sceneMemberID="viewController">
+                <viewController id="nOu-51-O42" customClass="AddViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NAw-yr-RTN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,25 +252,29 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNv-IC-V7e">
                                 <rect key="frame" x="172" y="165" width="31" height="30"/>
                                 <state key="normal" title="追加"/>
+                                <connections>
+                                    <action selector="addButton:" destination="nOu-51-O42" eventType="touchUpInside" id="RzS-Tw-9nP"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9n-jZ-q4u">
-                                <rect key="frame" x="162" y="316" width="50" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="5xo-pJ-t6b"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxy-Ww-hzE">
+                                <rect key="frame" x="10" y="316" width="355" height="30"/>
                                 <state key="normal" title="削除"/>
+                                <connections>
+                                    <action selector="deleteButton:" destination="nOu-51-O42" eventType="touchUpInside" id="EHZ-L6-n6U"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="oOY-aN-n8s" firstAttribute="trailing" secondItem="qxy-Ww-hzE" secondAttribute="trailing" constant="10" id="2SO-oD-S2V"/>
                             <constraint firstItem="ztR-Dn-0m1" firstAttribute="centerX" secondItem="NAw-yr-RTN" secondAttribute="centerX" id="2t8-Lx-5Xq"/>
                             <constraint firstItem="elE-Ed-lLr" firstAttribute="top" secondItem="kNv-IC-V7e" secondAttribute="bottom" constant="50" id="4bS-VN-PTR"/>
                             <constraint firstItem="kNv-IC-V7e" firstAttribute="top" secondItem="ztR-Dn-0m1" secondAttribute="bottom" constant="10" id="98R-4S-Z1P"/>
+                            <constraint firstItem="qxy-Ww-hzE" firstAttribute="centerX" secondItem="NAw-yr-RTN" secondAttribute="centerX" id="Eix-yW-USj"/>
                             <constraint firstItem="oOY-aN-n8s" firstAttribute="trailing" secondItem="pNh-j5-1qq" secondAttribute="trailing" constant="10" id="HAG-6x-eOy"/>
                             <constraint firstItem="pNh-j5-1qq" firstAttribute="centerX" secondItem="NAw-yr-RTN" secondAttribute="centerX" id="Ipg-8z-c28"/>
                             <constraint firstItem="kNv-IC-V7e" firstAttribute="centerX" secondItem="NAw-yr-RTN" secondAttribute="centerX" id="JmJ-dy-o8a"/>
                             <constraint firstItem="elE-Ed-lLr" firstAttribute="leading" secondItem="oOY-aN-n8s" secondAttribute="leading" constant="10" id="KX5-id-SSO"/>
-                            <constraint firstItem="q9n-jZ-q4u" firstAttribute="top" secondItem="W26-22-hz7" secondAttribute="bottom" constant="10" id="M7S-bP-asR"/>
                             <constraint firstItem="ztR-Dn-0m1" firstAttribute="top" secondItem="pNh-j5-1qq" secondAttribute="bottom" constant="10" id="QAr-Ao-iyj"/>
                             <constraint firstItem="pNh-j5-1qq" firstAttribute="top" secondItem="oOY-aN-n8s" secondAttribute="top" constant="30" id="RWe-SH-ePH"/>
                             <constraint firstItem="oOY-aN-n8s" firstAttribute="trailing" secondItem="elE-Ed-lLr" secondAttribute="trailing" constant="10" id="Rcr-nL-s0P"/>
@@ -282,11 +286,15 @@
                             <constraint firstItem="oOY-aN-n8s" firstAttribute="trailing" secondItem="ztR-Dn-0m1" secondAttribute="trailing" constant="10" id="lZP-n6-ciz"/>
                             <constraint firstItem="W26-22-hz7" firstAttribute="centerX" secondItem="NAw-yr-RTN" secondAttribute="centerX" id="npb-Ej-P3G"/>
                             <constraint firstItem="ztR-Dn-0m1" firstAttribute="leading" secondItem="oOY-aN-n8s" secondAttribute="leading" constant="10" id="oTf-aW-Qqd"/>
-                            <constraint firstItem="q9n-jZ-q4u" firstAttribute="centerX" secondItem="NAw-yr-RTN" secondAttribute="centerX" id="var-qZ-F4R"/>
+                            <constraint firstItem="qxy-Ww-hzE" firstAttribute="top" secondItem="W26-22-hz7" secondAttribute="bottom" constant="10" id="uGk-vI-dIl"/>
+                            <constraint firstItem="qxy-Ww-hzE" firstAttribute="leading" secondItem="oOY-aN-n8s" secondAttribute="leading" constant="10" id="y3j-em-urP"/>
                             <constraint firstItem="oOY-aN-n8s" firstAttribute="trailing" secondItem="W26-22-hz7" secondAttribute="trailing" constant="10" id="yad-Hj-3MZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oOY-aN-n8s"/>
                     </view>
+                    <connections>
+                        <outlet property="addTextField" destination="ztR-Dn-0m1" id="cVM-Hd-Zgz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFz-2h-Gcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

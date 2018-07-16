@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class InputViewController: UIViewController {
+class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var priorityControl: UISegmentedControl!
@@ -18,6 +18,7 @@ class InputViewController: UIViewController {
     
     var task = Task()
     let realm = try! Realm()
+    let data = try! Realm().objects(Category.self).map{ $0.name }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,10 @@ class InputViewController: UIViewController {
         //pickerの設定
         let picker = UIPickerView()
         categoryTextField.inputView = picker
+        //delegateの設定
+        picker.delegate = self
+        //dataSourceの設定
+        picker.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +65,36 @@ class InputViewController: UIViewController {
         }
         
         super.viewWillDisappear(animated)
+    }
+    
+    //画面遷移の際に呼ばれるメソッド
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let addViewController:AddViewController = segue.destination as! AddViewController
+        
+        if segue.identifier == "Add" {
+            let category = Category()
+            
+            let allCategories = realm.objects(Category.self)
+            if allCategories.count != 0 {
+                category.id = allCategories.max(ofProperty: "id")! + 1
+            }
+            addViewController.category = category
+        }
+    }
+    
+    //PickerViewの個数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //表示する行数。配列の個数を返している
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return data.count
+    }
+    
+    //表示する値
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return data[row] as? String
     }
 
     /*
