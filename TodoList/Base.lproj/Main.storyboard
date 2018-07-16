@@ -116,8 +116,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NWx-o2-cDk">
                                 <rect key="frame" x="10" y="337" width="355" height="29"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="High"/>
+                                    <segment title="Normal"/>
+                                    <segment title="Low"/>
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oc-zW-uHn">
@@ -204,6 +205,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m7y-7h-NdO"/>
                     </view>
+                    <connections>
+                        <outlet property="categoryTextField" destination="THq-YW-1f9" id="mlp-dw-Ai6"/>
+                        <outlet property="contentsTextView" destination="DDb-oc-y5p" id="YQw-Z5-vhJ"/>
+                        <outlet property="datePicker" destination="DMI-kq-4Jh" id="AA3-5E-civ"/>
+                        <outlet property="priorityControl" destination="NWx-o2-cDk" id="73E-z1-sor"/>
+                        <outlet property="titleTextField" destination="4Cl-28-azn" id="Ttu-zC-gtz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Olh-17-gb6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

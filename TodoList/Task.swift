@@ -2,8 +2,8 @@
 //  Task.swift
 //  TodoList
 //
-//  Created by UxU on 2018/07/12.
-//  Copyright © 2018年 UxU. All rights reserved.
+//  Created by UxU on 2018/07/16.
+//  Copyright © 2018 UxU. All rights reserved.
 //
 
 import RealmSwift
@@ -19,7 +19,7 @@ class Task: Object {
     
     @objc dynamic var category = ""
     
-    @objc dynamic var priority = ""
+    @objc dynamic var priority = 0
     
     /**
      id をプライマリーキーとして設定
