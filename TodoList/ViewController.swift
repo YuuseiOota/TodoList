@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         
         let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "Cell")
+        tableView.register(nib, forCellReuseIdentifier: "CustomCell")
         
         //cellの高さを自動で調整する
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -44,12 +44,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // 各セルの内容を返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 再利用可能な cell を得る
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! TaskTableViewCell
         
         // Cellに値を設定する.
         let task = taskArray[indexPath.row]
-        cell.textLabel?.text = task.title
+        cell.titleLabel.text = task.title
         
+        cell.categoryLabel.text = task.category
+        
+        let priority = task.priority
+        switch priority {
+        case 0:
+            cell.priorityLabel.text = "High"
+            cell.priorityLabel.backgroundColor = UIColor.red
+            cell.priorityLabel.layer.cornerRadius = 3
+            cell.priorityLabel.clipsToBounds = true
+        case 1:
+            cell.priorityLabel.text = "Normal"
+            cell.priorityLabel.backgroundColor = UIColor.green
+            cell.priorityLabel.layer.cornerRadius = 3
+            cell.priorityLabel.clipsToBounds = true
+        default:
+            cell.priorityLabel.text = "Low"
+            cell.priorityLabel.backgroundColor = UIColor.blue
+            cell.priorityLabel.layer.cornerRadius = 3
+            cell.priorityLabel.clipsToBounds = true
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd HH:mm"
+        let dateString:String = formatter.string(from: task.date)
+        cell.dateLabel.text = dateString
         
         return cell
     }
@@ -102,4 +127,3 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
 }
-

@@ -47,7 +47,7 @@
                             <constraint firstAttribute="width" constant="100" id="b51-IC-w0Z"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -70,7 +70,7 @@
             <connections>
                 <outlet property="categoryLabel" destination="2PK-MY-vRY" id="w84-hn-srJ"/>
                 <outlet property="dateLabel" destination="Jng-j9-zhR" id="Xjd-Vd-rw8"/>
-                <outlet property="priorityLabel" destination="H2p-sc-9uM" id="c7e-Oi-DXq"/>
+                <outlet property="priorityLabel" destination="yEc-GH-d7r" id="NU8-nM-kUM"/>
                 <outlet property="titleLabel" destination="sao-dA-Dvx" id="LU6-UY-wPe"/>
             </connections>
             <point key="canvasLocation" x="53.5" y="-187.5"/>
