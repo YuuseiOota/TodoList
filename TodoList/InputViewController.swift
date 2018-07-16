@@ -33,6 +33,10 @@ class InputViewController: UIViewController {
         priorityControl.selectedSegmentIndex = task.priority
         categoryTextField.text = task.category
         datePicker.date = task.date
+        
+        //pickerの設定
+        let picker = UIPickerView()
+        categoryTextField.inputView = picker
     }
 
     override func didReceiveMemoryWarning() {
