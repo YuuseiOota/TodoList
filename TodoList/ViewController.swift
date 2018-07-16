@@ -25,6 +25,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
+        
+        //cellの高さを自動で調整する
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight += 100
     }
 
     override func didReceiveMemoryWarning() {
