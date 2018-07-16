@@ -40,6 +40,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="rFZ-ZD-HGf" id="LrE-AN-BP8"/>
                         <segue destination="GC8-4a-ffj" kind="show" identifier="cellSegue" id="L0v-YH-yAz"/>
                     </connections>
                 </viewController>
@@ -47,16 +48,17 @@
             </objects>
             <point key="canvasLocation" x="306" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Input View Controller-->
         <scene sceneID="F6W-ou-R6x">
             <objects>
-                <viewController id="GC8-4a-ffj" sceneMemberID="viewController">
+                <viewController id="GC8-4a-ffj" customClass="InputViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OnW-6w-eOb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0SH-oW-T0G">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0SH-oW-T0G">
                                 <rect key="frame" x="-10" y="420" width="35" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSF-Qh-m2I">
                                 <rect key="frame" x="10" y="74" width="355" height="21"/>
@@ -139,6 +141,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="THq-YW-1f9" firstAttribute="leading" secondItem="m7y-7h-NdO" secondAttribute="leading" constant="10" id="4Zp-td-uwt"/>
                             <constraint firstItem="DMI-kq-4Jh" firstAttribute="top" secondItem="deK-ve-z6F" secondAttribute="bottom" constant="10" id="56P-gC-f9h"/>
                             <constraint firstItem="4XZ-7S-t5e" firstAttribute="centerX" secondItem="OnW-6w-eOb" secondAttribute="centerX" id="5kW-mF-2Hq"/>
                             <constraint firstItem="DMI-kq-4Jh" firstAttribute="centerX" secondItem="OnW-6w-eOb" secondAttribute="centerX" id="66K-bt-c5m"/>
@@ -160,7 +163,6 @@
                             <constraint firstItem="m7y-7h-NdO" firstAttribute="trailing" secondItem="4XZ-7S-t5e" secondAttribute="trailing" constant="10" id="bCq-g5-i2Y"/>
                             <constraint firstItem="THq-YW-1f9" firstAttribute="centerX" secondItem="OnW-6w-eOb" secondAttribute="centerX" id="bZI-05-nyg"/>
                             <constraint firstItem="DDb-oc-y5p" firstAttribute="leading" secondItem="m7y-7h-NdO" secondAttribute="leading" constant="10" id="bak-Hf-HZr"/>
-                            <constraint firstItem="THq-YW-1f9" firstAttribute="leading" secondItem="0SH-oW-T0G" secondAttribute="trailing" constant="10" id="cVM-9g-URs"/>
                             <constraint firstItem="deK-ve-z6F" firstAttribute="leading" secondItem="m7y-7h-NdO" secondAttribute="leading" constant="10" id="dov-Me-vNn"/>
                             <constraint firstItem="sSF-Qh-m2I" firstAttribute="centerX" secondItem="OnW-6w-eOb" secondAttribute="centerX" id="dzp-zb-F1F"/>
                             <constraint firstItem="sSF-Qh-m2I" firstAttribute="leading" secondItem="m7y-7h-NdO" secondAttribute="leading" constant="10" id="ed4-FH-Etc"/>
